@@ -9,17 +9,29 @@
 </head>
 
 <body>
-        <a id="login">Login with GitHub</a>
+        <a id="githubLogin">Login with GitHub</a>
+        <a id="microsoftLogin">Login with Microsoft</a>
 
 <script>
   // fill in your cliend_id
-  const client_id = '7e015d8ce32370079895';
+  const github_client_id = '22ab64830a6f9cf25a09';
 
-  const authorize_uri = 'https://github.com/login/oauth/authorize';
-  const redirect_uri = 'http://localhost:8080/oauth/redirect';
+  const github_authorize_uri = 'https://github.com/login/oauth/authorize';
+  const github_redirect_uri = 'http://localhost:8080/oauth/github/redirect';
 
-  const link = document.getElementById('login');
-  link.href = `${authorize_uri}?client_id=${client_id}&redirect_uri=${redirect_uri}`;
+  const githubLink = document.getElementById('githubLogin');
+  githubLink.href = `${github_authorize_uri}?client_id=${github_client_id}&redirect_uri=${github_redirect_uri}`;
+ 
+
+
+
+  const microsoft_client_id = 'c6d9df0f-f6d8-47e8-9a68-37ca5dbe8b54';
+
+  const microsoft_authorize_uri = 'https://login.microsoftonline.com/common/oauth2/v2.0/authorize';
+  const microsoft_redirect_uri = 'http://localhost:8080/oauth/microsoft/redirect';
+
+  const microsoftLink = document.getElementById('microsoftLogin');
+  microsoftLink.href = `${microsoft_authorize_uri}?client_id=${microsoft_client_id}&response_type=code&redirect_uri=${microsoft_redirect_uri}&scope=offline_access%20user.read%20mail.read`;
 </script>
 
 </body>
